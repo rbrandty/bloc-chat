@@ -2,12 +2,17 @@
 <html ng-app="bloc-chat">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Bloc Base Project</title>
+    <title>Bloc Chat</title>
     <link rel="stylesheet" href="/styles/main.css">
 </head>
+
 <body>
+  <ui-view></ui-view>
+
     <script src="/scripts/app.js"></script>
     <script src="/scripts/controllers/HomeCtrl.js"></script>
+    <script src="/scripts/controllers/RoomCtrl.js"></script>
+    <script src="/scripts/factories/Room.js"></script>
 <!-- Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 
@@ -16,6 +21,7 @@
 
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+
 <script>
   // Initialize Firebase
   var config = {

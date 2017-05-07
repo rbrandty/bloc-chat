@@ -1,14 +1,26 @@
 (function() {
-  function config($stateProvider) {
+  function config($stateProvider, $locationProvider) {
+    $locationProvider
+    .html5Mode({
+      enabled: true,
+      requireBase: false
+    });
 
     $stateProvider
-    .state('Home', {
+    .state('home', {
       url: '/',
-      controller: 'HomeCtrl as Home',
-      //templateUrl: '/templates/landing.html'
+      controller: 'HomeCtrl as home',
+      templateUrl: '/templates/home.html'
     })
+    .state('rooms', {
+        url: '/rooms',
+        controller: 'RoomCtrl as rooms',
+        templateUrl: '/templates/rooms.html',
+    });
 
-angular
-.module('bloc-chat', ['ui.router', 'firebase'], )
-.config(['$stateProvider']);
+  }
+
+  angular
+  .module('bloc-chat', ['ui.router', 'firebase'], )
+  .config(config);
 })();

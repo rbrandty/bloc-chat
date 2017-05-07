@@ -1,9 +1,9 @@
 (function() {
   function HomeCtrl() {
-//code to come
+    this.heroTitle = "Chat!";
   };
 
 angular
 .module('bloc-chat')
-.controller('HomeCtrl');
+.controller('HomeCtrl', HomeCtrl);
 })();

@@ -5,22 +5,23 @@
       enabled: true,
       requireBase: false
     });
-
+    
     $stateProvider
     .state('home', {
       url: '/',
       controller: 'HomeCtrl as home',
       templateUrl: '/templates/home.html'
     })
+
     .state('rooms', {
-        url: '/rooms',
-        controller: 'RoomCtrl as rooms',
-        templateUrl: '/templates/rooms.html',
+      url: '/rooms',
+      controller: 'RoomCtrl as rooms',
+      templateUrl: '/templates/rooms.html',
     });
 
   }
 
   angular
-  .module('bloc-chat', ['ui.router', 'firebase'], )
+  .module('bloc-chat', ['ui.router', 'firebase'])
   .config(config);
 })();

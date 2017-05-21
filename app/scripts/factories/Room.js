@@ -6,12 +6,13 @@
     var rooms = $firebaseArray(ref);
 
     Room.all = rooms;
-
+    
     Room.add = function(name) {
       rooms.$add(name);
     }
 
     return Room;
+
   }
 
   angular

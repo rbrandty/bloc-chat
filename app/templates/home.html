@@ -1,9 +1,12 @@
-
 <section class="chat-rooms">
     <h1>Bloc Chat</h1>
-        <nav>
-            <ul ng-repeat='room in home.rooms'>
-                <li>{{room.$value}}</li>
-            </ul>
-        </nav>
+    <div>
+        <input type="text" ng-model="home.newRoom.name">
+        <button type="button" ng-click="home.addRoom()">New Room</button>
+    </div>
+    <nav>
+        <ul>
+            <li ng-repeat='room in home.rooms'>{{room.name}}</li>
+        </ul>
+    </nav>
 </section>

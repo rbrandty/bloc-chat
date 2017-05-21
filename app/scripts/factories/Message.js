@@ -1,9 +1,8 @@
 (function() {
   function Message($firebaseArray) {
     var Message = {};
-
-    var messageRef = firebase.database().ref().child("messages");
-    var messages = $firebaseArray(messageRef);
+    var ref = firebase.database().ref().child("messages");
+    var messages = $firebaseArray(ref);
 
     Message.getByRoomId = function(roomId) {
       console.log(roomId);

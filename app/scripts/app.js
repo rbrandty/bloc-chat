@@ -18,12 +18,6 @@
       controller: 'RoomCtrl as rooms',
       templateUrl: '/templates/rooms.html',
     });
-
-    .state('modals', {
-      url: '/modals',
-      controller: 'ModalCtrl as modals',
-      templateUrl: '/templates/modals.html',
-    });
   }
 
   angular

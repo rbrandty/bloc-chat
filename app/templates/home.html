@@ -4,8 +4,9 @@
         <button type="button" ng-click="home.open()">New Room</button>
     </div>
     <nav>
-        <ul>
-            <li ng-repeat='room in home.rooms' ng-click="home.setCurrentRoom(room)">{{room.name}}</li>
+        <ul ng-repeat='room in home.rooms'>
+            <!-- <li ng-click="home.setCurrentRoom(room)">{{room.name}}</li> -->
+            <li ng-click="home.setCurrentRoom(room.$id)">{{room.name}}</li>
         </ul>
     </nav>
 </section>

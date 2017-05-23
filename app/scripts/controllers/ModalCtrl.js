@@ -1,5 +1,5 @@
 (function() {
-    function ModalCtrl($uibModalInstance, Room){
+  function ModalCtrl(Room, $uibModalInstance, $cookies) {
         var modal = this;
 
         modal.text = "";

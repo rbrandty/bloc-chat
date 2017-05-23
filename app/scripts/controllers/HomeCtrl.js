@@ -1,12 +1,11 @@
 (function() {
   function HomeCtrl(Room, Message, $cookies, $uibModal) {
-    var ctrl = this;
+    var home = this;
+    home.rooms = Room.all;
+    home.currentRoom = null;
 
-    ctrl.rooms = Room.all;
+    home.addRoom = function() {
 
-    ctrl.currentRoom = null;
-
-    ctrl.open = function() {
       $uibModal.open({
         templateUrl: '/templates/modal.html',
         controller: 'ModalCtrl',
@@ -14,9 +13,11 @@
       });
     };
 
-    ctrl.setCurrentRoom = function(roomId) {
-      ctrl.currentMessages = Message.getByRoomId(roomId);
-    };
+    home.setCurrentRoom = function (room) {
+      home.currentRoom = room;
+      home.messages = Message.getByRoomId(home.currentRoom.$id);
+      console.log(home.messages)
+    }
   }
 
   angular

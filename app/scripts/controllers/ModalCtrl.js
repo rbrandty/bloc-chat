@@ -1,20 +1,22 @@
 (function() {
   function ModalCtrl(Room, $uibModalInstance, $cookies) {
-        var modal = this;
+    var modal = this;
+    modal.cancel = function () {
+      $uibModalInstance.dismiss();
+    };
 
-        modal.text = "";
+    modal.createRoom = function () {
+      Room.add(modal.newRoom);
+      $uibModalInstance.close();
+    };
 
-        modal.addRoom = function(name){
-            Room.add({ name: name });
-            $uibModalInstance.close();
-        };
-
-        modal.cancel = function() {
-            $uibModalInstance.dismiss('cancel');
-        }
+    modal.createUsername = function () {
+      $cookies.put('blocChatCurrentUser', modal.username);
+      $uibModalInstance.close();
     }
+  }
 
-    angular
-        .module('bloc-chat')
-        .controller('ModalCtrl', ['$uibModalInstance', 'Room', ModalCtrl])
+  angular
+  .module('bloc-chat')
+  .controller('ModalCtrl', ['Room', '$uibModalInstance', '$cookies', ModalCtrl]);
 })();

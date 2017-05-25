@@ -1,18 +1,24 @@
 (function() {
-    function Message($firebaseArray) {
-        var Message = {};
+  function Message($firebaseArray) {
+    var Message = {};
 
-        var ref = firebase.database().ref().child("messages");
-        var messages = $firebaseArray(ref);
+    var ref = firebase.database().ref().child("messages");
+    var messages = $firebaseArray(ref);
+    Message.all = messages;
 
-        Message.getByRoomId = function (roomId) {
-            return $firebaseArray(ref.orderByChild('roomId').equalTo(roomId));
-        }
-
-        return Message;
+    Message.getByRoomId = function (roomId) {
+      return $firebaseArray(ref.orderByChild('roomId').equalTo(roomId));
     }
 
-    angular
-        .module('bloc-chat')
-        .factory('Message', ['$firebaseArray', Message]);
+    Message.send = function (newMessage) {
+      messages.$add(newMessage);
+      newMessage.sentAt = firebase.database.ServerValue.TIMESTAMP;
+    }
+
+    return Message;
+  }
+
+  angular
+  .module('bloc-chat')
+  .factory('Message', ['$firebaseArray', Message]);
 })();

@@ -1,6 +1,7 @@
 (function() {
   function ModalCtrl(Room, $uibModalInstance, $cookies) {
     var modal = this;
+
     modal.cancel = function () {
       $uibModalInstance.dismiss();
     };

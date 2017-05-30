@@ -3,11 +3,9 @@
     var currentUser = $cookies.get('blocChatCurrentUser');
     if (!currentUser || currentUser === '') {
       $uibModal.open({
-        templateUrl: '/templates/login.html',
+        templateUrl: '/templates/prompt.html',
         size: 'sm',
-        controller: 'ModalCtrl as modal',
-        keyboard: false,
-        backdrop: 'static'
+        controller: 'ModalCtrl as modal'
       });
     }
   }
